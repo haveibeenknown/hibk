@@ -1,10 +1,4 @@
 # Footer navigation links
 
-- title: Known?
-  url: /
-
-- title: Faq
+title: FAQ
   url: /faq/
-
-- title: Contact
-  url: /contact/

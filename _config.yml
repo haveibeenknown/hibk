@@ -1,9 +1,3 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
 # Site title and description
 title:              HIBK?
 description:        Check if your coins are under surveillance and counter with obfuscation.
@@ -24,20 +18,7 @@ logo_image:
 
 # Author settings, displayed on about page
 author:
-    name:           Joshua Marriage
-    email:
-    website:		https://fungible.cc
-    facebook:       
-    flickr:
-    dribbble:
     github:			https://github.com/satoshua
-    googleplus:
-    instagram:      
-    linkedin:
-    pinterest:
-    twitter:        https://twitter.com/satoshua
-    vimeo:          
-    youtube:
 
 # Social share buttons
 twitter_username:   satoshua
@@ -46,16 +27,6 @@ github_username:    satoshua
 # Default footer image settings
 footer:
     copyright:      Made by <a href="https://twitter.com/satoshua">Satoshua</a> in Sydney, Australia.
-
-# Disqus comments shortname, requires Disqus account https://disqus.com/
-disqus:
-    shortname:      
-
-# Google analytics code, get your code here https://www.google.com/analytics/
-google_analytics:
-
-# Google maps API key, get your key here: https://developers.google.com/maps/documentation/javascript/get-api-key
-google_maps_api_key:
 
 # Path to post content assets directory i.e post images, pdfs etc
 post_assets:        /assets/posts/

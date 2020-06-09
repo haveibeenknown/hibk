@@ -16,7 +16,7 @@ featured:
     tag: featured
 cta:
     title: Didn't find fungibility?
-    subtitle: Get in touch with us for details on additional services
-    button_text: Contact Us   
-    button_url: /contact/      
+    subtitle: Get an email for every new publication or grab our [RSS feed](/feed.xml)
+    button_text: Subscribe  
+    button_url: https://rssmailer.app/s/hibk      
 ---
