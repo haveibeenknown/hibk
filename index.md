@@ -16,7 +16,7 @@ featured:
     tag: featured
 cta:
     title: Didn't find fungibility?
-    subtitle: Get an email for every new publication or grab our [RSS feed](/feed.xml)
+    subtitle: Get an occasional email for every new publication
     button_text: Subscribe  
     button_url: https://rssmailer.app/s/hibk      
 ---
