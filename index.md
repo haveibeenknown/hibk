@@ -15,7 +15,7 @@ featured:
     title: Featured Resources
     tag: featured
 cta:
-    title: Didn't find better fungibility?
+    title: Didn't find fungibility?
     subtitle: Get in touch with us for details on additional services
     button_text: Contact Us   
     button_url: /contact/      
