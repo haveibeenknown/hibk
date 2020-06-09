@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Have I Been Known?
-subtitle: Check if you're under surveillance and counter with obfuscation
+subtitle: Check if your bitcoin is under surveillance and counter with obfuscation
 hero:
     background: "#000000"
     image: header_2.jpg
@@ -15,8 +15,8 @@ featured:
     title: Featured Resources
     tag: featured
 cta:
-    title: Didn't find fungibility?
-    subtitle: Get an occasional email for every new publication
+    title: Looking for more?
+    subtitle: Get an email for every new publication
     button_text: Subscribe  
     button_url: https://rssmailer.app/s/hibk      
 ---
