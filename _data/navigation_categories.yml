@@ -1,0 +1,15 @@
+# Categories home page navigation
+
+- heading: Surveillance doesn't equal Sound Money
+  categories:
+    - title: Sousveillance
+      desc: Find out what the Big Brothers of Blockchain have on you
+      icon: search
+
+    - title: CoinJoins and Mixers
+      desc: Discover services that help you to obfuscate transactions
+      icon: beaker
+
+    - title: Chain Hopping
+      desc: Browse instant exchanger services and trade privacy coins
+      icon: exchange

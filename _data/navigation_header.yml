@@ -1,0 +1,9 @@
+# Navbar menu navigation links
+- title: Known?
+  url: /
+
+- title: Faq
+  url: /faq/
+
+- title: Contact
+  url: /contact/
