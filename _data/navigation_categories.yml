@@ -8,8 +8,8 @@
 
     - title: CoinJoins and Mixers
       desc: Discover services that help you to obfuscate transactions
-      icon: beaker
+      icon: cog
 
     - title: Chain Hopping
       desc: Browse instant exchanger services and trade privacy coins
-      icon: exchange
+      icon: link
