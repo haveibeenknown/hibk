@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Have I Been Known?
-subtitle: Check if your bitcoin is under surveillance and counter with obfuscation
+subtitle: Check if your bitcoin is known to surveillance and counter with obfuscation #fucKYC
 hero:
     background: "#000000"
     image: header_2.jpg
