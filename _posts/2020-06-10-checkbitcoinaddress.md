@@ -4,5 +4,4 @@ title: Check bitcoin addresses for online mentions and abuse - CheckBitcoinAddre
 categories: [Sousveillance]
 tags: 
 external_url: https://checkbitcoinaddress.com/
-external_site: checkbitcoinaddress.com
 ---
