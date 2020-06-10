@@ -51,4 +51,4 @@ collections:
   faqs:
     output: false
 
-theme: jekyll-theme-cayman
+theme: jekyll-theme-slate
