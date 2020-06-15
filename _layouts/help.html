@@ -79,10 +79,30 @@ function showContainer(id) {
 
 <div class="uk-section uk-section-large uk-section-default">
     <div class="uk-container uk-container-small">
-
+		
         <div class="uk-article-content">{{ content }}</div>
-		<!-- Category section for revealing lists based on click of categories -->
+        
+        {% if page.featured.tag %}
+        <div>
+            {% if page.featured.title %}
+            <h2 class="section-title-primary">{{ page.featured.title }}
+                <a href="#" data-uk-totop data-uk-scroll="duration: 400" class="uk-float-right uk-margin-small-top"></a>
+            </h2>
+            {% endif %}
+            <ul class="uk-list uk-list-large link-icon-right">
+            {% for post in site.tags[page.featured.tag] %}
+				{% if post.external_url %}
+				<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
+				{% else %}
+                <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+				{% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        
         <div id="category-section" class="uk-margin-large-top hidden">
+            <hr>
             {% for category in site.categories %}
             {% capture category_name %}{{ category | first }}{% endcapture %}
 
@@ -102,39 +122,12 @@ function showContainer(id) {
             </div>
             {% endfor %}
         </div>
-        
-        <!-- Placeholder section for revealing results relevant to bitcoin address search -->
-        <div id="featured-section" class="uk-margin-large-top hidden">
-            
-            {% if page.featured.tag %}
-			<div>
-				{% if page.featured.title %}
-				<div id="featured-container" class="category-container hidden">
-				<h2 class="section-title-primary">{{ page.featured.title }}
-					<a href="#" data-uk-totop data-uk-scroll="duration: 400" class="uk-float-right uk-margin-small-top"></a>
-				</h2>
-				{% endif %}
-				<ul class="uk-list uk-list-large link-icon-right">
-				{% for post in site.tags[page.featured.tag] %}
-					{% if post.external_url %}
-					<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
-					{% else %}
-					<li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
-					{% endif %}
-				{% endfor %}
-				</ul>
-				</div>
-			</div>
-			{% endif %}
-			<hr>
-        </div>
 
     </div>
 </div>
 
-
 {% if page.cta %}
-<div  class="uk-container uk-container-small"></div>
+<div  class="uk-container uk-container-small"><hr></div>
 <div class="uk-section-large uk-text-center">
     <div class="uk-container uk-container-small">
         <div data-uk-scrollspy="cls: uk-animation-slide-bottom-small; repeat: true">

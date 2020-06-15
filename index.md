@@ -12,7 +12,7 @@ hero:
 category:
     columns: 3
 featured:
-    title: Uh oh — likely known
+    title: Featured Resources
     tag: featured
 cta:
     title: Looking for more?

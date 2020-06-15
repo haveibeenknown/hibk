@@ -51,7 +51,7 @@
                     <div class="uk-position-relative">
                         <form class="uk-search uk-search-default uk-width-1-1" name="search-hero" onsubmit="return false;">
                             <span data-uk-search-icon></span>
-                            <input id="hero-search" class="uk-search-input" type="search" placeholder="Search for...">
+                            <input id="hero-search" class="uk-search-input" type="search" placeholder="Search BTC address...">
                         </form>
                         <ul id="hero-search-results" class="uk-position-absolute uk-width-1-1 uk-list"></ul>
                     </div>
@@ -60,7 +60,7 @@
                     SimpleJekyllSearch({
                         searchInput: document.getElementById('hero-search'),
                         resultsContainer: document.getElementById('hero-search-results'),
-                        noResultsText: '<li><a href="#featured-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('results');">Uh oh — likely known. Click to learn more.</a></li>',
+                        noResultsText: '<li><a href="#privacy-analysis-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('privacy-analysis');">Uh oh — likely known. Click to learn more.</a></li>',
                         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
                         json: '{{ "search.json" | relative_url }}'
                     });
