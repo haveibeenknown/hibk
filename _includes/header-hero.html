@@ -49,60 +49,14 @@
 
                     <!-- Html Elements for Search -->
                     <div class="uk-position-relative">
-                        <form class="uk-search uk-search-default uk-width-1-1" name="search-hero" onsubmit="return false;">
+                        <form class="uk-search uk-search-default uk-width-1-1">
                             <span data-uk-search-icon></span>
-                            <input id="hero-search" class="uk-search-input" type="search" placeholder="Search BTC address...">
+                            <input id="hero-search" class="uk-search-input" type="search" placeholder="Paste BTC address...">
                         </form>
-                        <ul id="hero-search-results" class="uk-position-absolute uk-width-1-1 uk-list"></ul>
+						<div align="center" style="padding-top: 20px;">
+							<a class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-margin-small-top" href="#privacy-analysis-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('privacy-analysis');">Search Blockchain</a>
+						</div>
                     </div>
-
-                    <script>
-                    SimpleJekyllSearch({
-                        searchInput: document.getElementById('hero-search'),
-                        resultsContainer: document.getElementById('hero-search-results'),
-                        noResultsText: '<li><a href="#privacy-analysis-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('privacy-analysis');">Uh oh — likely known. Click to learn more.</a></li>',
-                        searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
-                        json: '{{ "search.json" | relative_url }}'
-                    });
-                    
-					function filter(tag) {
-					  setActiveTag(tag);
-					  showContainer(tag);
-					}
-
-					function setActiveTag(id) {
-					  // loop through all items and remove active class
-					  var items = document.getElementsByClassName('card-category');
-					  for(var i=0; i < items.length; i++) {
-						items[i].classList.remove('uk-card-primary');
-						items[i].classList.add('uk-card-default');
-					  }
-
-					  // set the selected id's item to active
-					  var item = document.getElementById(id + '-card');
-					  if(item) {
-						item.classList.remove('uk-card-default');
-						item.classList.add('uk-card-primary');
-					  }
-					}
-
-					function showContainer(id) {
-					  // loop through all lists and hide them
-					  var lists = document.getElementsByClassName('category-container');
-					  for(var i=0; i < lists.length; i++) {
-						lists[i].classList.add('hidden');
-					  }
-
-					  // remove the hidden class from the list corresponding to the selected id
-					  var list = document.getElementById(id + '-container');
-					  var section = document.getElementById('category-section');
-					  if(list) {
-						section.classList.remove('hidden');
-						list.classList.remove('hidden');
-					  }
-
-					}      
-                    </script>
 
                 </div>
                 {% endif %}
