@@ -12,11 +12,8 @@ hero:
 category:
     columns: 3
 featured:
-    title: Featured Resources
+    title: Uh oh — likely known
     tag: featured
-results:
-	title: Uh oh, you've been known.
-	tag: results
 cta:
     title: Looking for more?
     subtitle: Get an email when we share something new

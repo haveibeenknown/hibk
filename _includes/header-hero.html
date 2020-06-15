@@ -60,7 +60,7 @@
                     SimpleJekyllSearch({
                         searchInput: document.getElementById('hero-search'),
                         resultsContainer: document.getElementById('hero-search-results'),
-                        noResultsText: '<li><a href="#results-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('results');">Uh oh — likely known. Click to learn more.</a></li>',
+                        noResultsText: '<li><a href="#featured-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('results');">Uh oh — likely known. Click to learn more.</a></li>',
                         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
                         json: '{{ "search.json" | relative_url }}'
                     });
