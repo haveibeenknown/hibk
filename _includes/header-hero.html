@@ -64,6 +64,44 @@
                         searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
                         json: '{{ "search.json" | relative_url }}'
                     });
+                    
+					function filter(tag) {
+					  setActiveTag(tag);
+					  showContainer(tag);
+					}
+
+					function setActiveTag(id) {
+					  // loop through all items and remove active class
+					  var items = document.getElementsByClassName('card-category');
+					  for(var i=0; i < items.length; i++) {
+						items[i].classList.remove('uk-card-primary');
+						items[i].classList.add('uk-card-default');
+					  }
+
+					  // set the selected id's item to active
+					  var item = document.getElementById(id + '-card');
+					  if(item) {
+						item.classList.remove('uk-card-default');
+						item.classList.add('uk-card-primary');
+					  }
+					}
+
+					function showContainer(id) {
+					  // loop through all lists and hide them
+					  var lists = document.getElementsByClassName('category-container');
+					  for(var i=0; i < lists.length; i++) {
+						lists[i].classList.add('hidden');
+					  }
+
+					  // remove the hidden class from the list corresponding to the selected id
+					  var list = document.getElementById(id + '-container');
+					  var section = document.getElementById('category-section');
+					  if(list) {
+						section.classList.remove('hidden');
+						list.classList.remove('hidden');
+					  }
+
+					}      
                     </script>
 
                 </div>
