@@ -112,8 +112,10 @@ function showContainer(id) {
                 </h2>
                 <ul class="uk-list uk-list-large link-icon-right uk-margin-remove">
                 {% for post in site.categories[category_name] %}
-					{% if post.external_url %}
-					<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
+					{% if post.external_url && post.tags contains "danger" %}
+					<li><a href="{{ post.external_url }}" style="color:#FF0000;">{{post.title}}</a></li>
+					{% elsif post.external_url && post.tags contains "warning" %}
+					<li><a href="{{ post.external_url }}" style="color:#FF7000;">{{post.title}}</a></li>
 					{% else %}
                     <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
                     {% endif %}
