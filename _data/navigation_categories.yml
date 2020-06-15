@@ -3,14 +3,14 @@
 - heading: Surveillance-free Sound Money
   categories:
 
-    - title: Chain Hopping
-      desc: Browse instant and non-KYC exchanges to trade privacy coins
-      icon: link
+    - title: Sousveillance
+      desc: Find out what the Big Brothers of Blockchain have on you
+      icon: search
 
     - title: CoinJoins and Mixers
       desc: Discover services that help you to obfuscate transactions
       icon: cog
 
-    - title: Privacy Analysis
-      desc: Find out what the Big Brothers of Blockchain have on you
-      icon: search
+    - title: Chain Hopping
+      desc: Browse instant and non-KYC exchanges to trade privacy coins
+      icon: link

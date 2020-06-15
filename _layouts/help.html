@@ -93,6 +93,8 @@ function showContainer(id) {
             {% for post in site.tags[page.featured.tag] %}
 				{% if post.external_url %}
 				<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
+				{% elseif post.tags contains promo %}
+                <li><a href="{{ site.baseurl }}{{ post.url }}" style="font-weight: bold;">{{post.title}}</a></li>
 				{% else %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
 				{% endif %}
@@ -115,7 +117,9 @@ function showContainer(id) {
 					{% if post.external_url and post.tags contains "danger" %}
 					<li><a href="{{ post.external_url }}" style="color:#FF0000;">{{post.title}}</a></li>
 					{% elsif post.external_url and post.tags contains "warning" %}
-					<li><a href="{{ post.external_url }}" style="color:#FF7000;">{{post.title}}</a></li>
+					<li><a href="{{ post.external_url }}" style="color:#FF0000;">{{post.title}}</a></li>
+					{% elsif post.external_url and post.tags contains "good" %}
+					<li><a href="{{ post.external_url }}" style="color:#00E430;">{{post.title}}</a></li>
 					{% else %}
                     <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
                     {% endif %}
