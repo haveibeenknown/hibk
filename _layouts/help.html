@@ -93,8 +93,6 @@ function showContainer(id) {
             {% for post in site.tags[page.featured.tag] %}
 				{% if post.external_url %}
 				<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
-				{% elsif post.tags contains "promo" %}
-                <li><a href="{{ site.baseurl }}{{ post.url }}" style="font-weight: bold;">{{post.title}}</a></li>
 				{% else %}
                 <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
 				{% endif %}
