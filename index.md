@@ -1,7 +1,7 @@
 ---
 layout: help
 title: Have I Been Known?
-subtitle: Check if your bitcoin is known to surveillance and counter with obfuscation ♯fucKYC
+subtitle: Check if you have a bitcoin address that is likely known to surveillance
 hero:
     background: "#000000"
     image: header_2.jpg
@@ -14,9 +14,12 @@ category:
 featured:
     title: Featured Resources
     tag: featured
+results:
+	title: Uh oh, you've been known.
+	tag: results
 cta:
     title: Looking for more?
-    subtitle: Get an email for every new publication
+    subtitle: Get an email when we share something new
     button_text: Subscribe  
     button_url: https://rssmailer.app/s/hibk      
 ---

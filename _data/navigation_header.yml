@@ -1,3 +1,11 @@
 # Navbar menu navigation links
+
 - title: Subscribe
   url: https://rssmailer.app/s/hibk
+  
+- title: About
+  url: /about/
+
+- title: FAQ
+  url: /faq/
+ 
