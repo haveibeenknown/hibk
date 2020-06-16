@@ -91,7 +91,7 @@ function showContainer(id) {
             {% endif %}
             <ul class="uk-list uk-list-large link-icon-right">
             {% for post in site.tags[page.featured.tag] %}
-				{% if post.external_url and post.tags contains "promo" %}
+				{% if post.external_url and post.tags contains "featured promo" %}
 				<li><a href="{{ post.external_url }}" style="color:#28A745;">&#9432; {{post.title}}</a></li>
 				{% elsif post.external_url %}
 				<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
