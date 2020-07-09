@@ -306,11 +306,21 @@ $section-large-padding-vertical-m:                 $global-large-margin * 1.2;
                 font-style: normal;
                 &:focus {
                     background: #ffffff;
+                    box-shadow: 0 0 9px 3px #fbc02d;
+                    -webkit-box-shadow: 0 0 9px 3px #fbc02d;
+                    -moz-box-shadow: 0 0 9px 3px #fbc02d;
+                    -ms-box-shadow: 0 0 9px 3px #fbc02d;
+                    -o-box-shadow: 0 0 9px 3px #fbc02d;
+                }
+                &:focus ~ .uk-search-icon{
+                    color: #fbc02d
                 }
             }
             .uk-search-icon {
                 width: 50px;
                 color: $global-muted-color;
+                cursor: pointer;
+                pointer-events: auto !important;
             }
 
         }

@@ -151,7 +151,7 @@ $search-toggle-hover-color:                          $global-color !default;
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    right: 0;
     /* 2 */
     display: inline-flex;
     justify-content: center;
@@ -211,7 +211,7 @@ $search-toggle-hover-color:                          $global-color !default;
 
 .uk-search-default .uk-search-icon { width: $search-default-icon-width; }
 
-.uk-search-default .uk-search-icon:not(.uk-search-icon-flip) + .uk-search-input { padding-left: ($search-default-icon-width); }
+.uk-search-default .uk-search-input {  padding-left: ($search-default-icon-width); }
 .uk-search-default .uk-search-icon-flip + .uk-search-input { padding-right: ($search-default-icon-width); }
 
 
