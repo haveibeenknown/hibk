@@ -13,8 +13,13 @@ layout: default
   var addressApi = baseUrl + '/address/';
   var transactionApi = baseUrl + '/tx/';
 
-  function fetchTransactions() {
-    var address = document.getElementById('hero-search').value;
+  function analyzeTransactions() {
+    var address = document.getElementById('hero-search').value.trim();
+
+    if(address.length == 0) {
+      noResults();
+      return;
+    }
 
     fetch(addressApi + address + '/txs', {
       method: 'get'
@@ -29,19 +34,43 @@ layout: default
       }
     })
     .then(transactions => {
-      console.log("Checking Privacy...... ");
+      console.log("Analysing Privacy Issues...... ");
       return transactions.map(getPrivacyAnalysis);
-    }).then(privacyViolations => {
-      // console.log(">>>>>>>>>>>>>>Result");
-      // console.log(privacyViolations);
+    })
+    .then(privacyViolations => {
       const uniqViolations = Array.from(new Set(privacyViolations.flat()));
       console.log("Uniq Violations >>> ");
       console.log(uniqViolations);
-    });
+      if(uniqViolations.length > 0) {
+        uniqViolations.forEach(violation => {
+          document
+            .querySelectorAll('ul li[data-privacy*="'+ violation +'"]')
+            .forEach(e => e.classList.remove('uk-hidden'));
+        });
+      } else {
+        noResults();
+      }
+    })
+  }
+
+  function hideAllPrivacyIssues() {
+    document
+      .getElementById('uh-oh-address-likely-known-container')
+      .querySelectorAll('ul li[data-privacy]')
+      .forEach(e => e.classList.add('uk-hidden'));
+  }
+
+  function noResults() {
+    hideAllPrivacyIssues();
+    document.getElementById('uh-oh-address-likely-known-container')
+      .getElementsByClassName('all-good uk-hidden')[0]
+      .classList.remove('uk-hidden');
   }
 
 function filter(tag) {
-  fetchTransactions();
+  hideAllPrivacyIssues();
+  if(tag == "uh-oh-address-likely-known")
+    analyzeTransactions();
   setActiveTag(tag);
   showContainer(tag);
 }
@@ -146,18 +175,19 @@ function showContainer(id) {
                 </h2>
                 <ul class="uk-list uk-list-large link-icon-right uk-margin-remove">
                 {% for post in site.categories[category_name] %}
-					{% if post.external_url and post.tags contains "danger" %}
-					<li><a href="{{ post.external_url }}" style="color:#DC3545;">&#9432; {{post.title}}</a></li>
-					{% elsif post.external_url and post.tags contains "warning" %}
-					<li><a href="{{ post.external_url }}" style="color:#FFC107;">&#9432; {{post.title}}</a></li>
-					{% elsif post.external_url and post.tags contains "good" %}
-					<li><a href="{{ post.external_url }}" style="color:#28A745;">&#9432; {{post.title}}</a></li>
-					{% elsif post.external_url %}
-					<li><a href="{{ post.external_url }}">{{post.title}}</a></li>
-					{% else %}
-                    <li><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
-                    {% endif %}
+        					{% if post.external_url and post.tags contains "danger" %}
+        					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#DC3545;">&#9432; {{post.title}}</a></li>
+        					{% elsif post.external_url and post.tags contains "warning" %}
+        					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#FFC107;">&#9432; {{post.title}}</a></li>
+        					{% elsif post.external_url and post.tags contains "good" %}
+        					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#28A745;">&#9432; {{post.title}}</a></li>
+        					{% elsif post.external_url %}
+        					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}">{{post.title}}</a></li>
+        					{% else %}
+                    <li data-privacy="{{post.privacy}}"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
+                  {% endif %}
                 {% endfor %}
+                  <li class="all-good uk-hidden" style="color:#28A745;">Good work, no privacy gotchas</li>
                 </ul>
             </div>
             {% endfor %}

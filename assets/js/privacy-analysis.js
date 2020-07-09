@@ -87,7 +87,7 @@ function getPrivacyAnalysis(tx) {
   if (!hasCT && isCoinJoinLike(tx)) {
     detected.push('coinjoin-equal-outputs')
   }
-
+  console.log(tx.txid + " : Issues >>>>> " + detected);
   return detected
 }
 
