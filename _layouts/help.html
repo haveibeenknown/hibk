@@ -9,7 +9,39 @@ layout: default
 {% endif %}
 
 <script>
+  var baseUrl = 'https://blockstream.info/api';
+  var addressApi = baseUrl + '/address/';
+  var transactionApi = baseUrl + '/tx/';
+
+  function fetchTransactions() {
+    var address = document.getElementById('hero-search').value;
+
+    fetch(addressApi + address + '/txs', {
+      method: 'get'
+    })
+    .then(response => response.json())
+    .then(jsonData => {
+      console.log("Total transactions "+ jsonData.length);
+      if(jsonData.length >= 5) {
+        return [jsonData[0], jsonData[2], jsonData[4]];
+      } else {
+        return jsonData.slice(0, 3); 
+      }
+    })
+    .then(transactions => {
+      console.log("Checking Privacy...... ");
+      return transactions.map(getPrivacyAnalysis);
+    }).then(privacyViolations => {
+      // console.log(">>>>>>>>>>>>>>Result");
+      // console.log(privacyViolations);
+      const uniqViolations = Array.from(new Set(privacyViolations.flat()));
+      console.log("Uniq Violations >>> ");
+      console.log(uniqViolations);
+    });
+  }
+
 function filter(tag) {
+  fetchTransactions();
   setActiveTag(tag);
   showContainer(tag);
 }
