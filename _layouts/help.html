@@ -187,7 +187,7 @@ function showContainer(id) {
                     <li data-privacy="{{post.privacy}}"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></li>
                   {% endif %}
                 {% endfor %}
-                  <li class="all-good uk-hidden" style="color:#28A745;">Good work, no privacy gotchas</li>
+                  <li class="all-good uk-hidden" data-privacy="" style="color:#28A745;">Good work, no privacy gotchas</li>
                 </ul>
             </div>
             {% endfor %}
