@@ -13,18 +13,26 @@ layout: default
   var addressApi = baseUrl + '/address/';
   var transactionApi = baseUrl + '/tx/';
 
+  function getHeroSearchElement() {
+    return document.getElementById('hero-search');
+  }
+
   function analyzeTransactions() {
-    var address = document.getElementById('hero-search').value.trim();
+    var address = getHeroSearchElement().value.trim();
 
     if(address.length == 0) {
-      noResults();
+      // noResults('invalid-input');
+      filter('uh-oh-address-likely-known', 'no');
       return;
     }
 
     fetch(addressApi + address + '/txs', {
       method: 'get'
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) { throw response }
+      return response.json()
+    })
     .then(jsonData => {
       console.log("Total transactions "+ jsonData.length);
       if(jsonData.length >= 5) {
@@ -42,14 +50,23 @@ layout: default
       console.log("Uniq Violations >>> ");
       console.log(uniqViolations);
       if(uniqViolations.length > 0) {
+        showSearchFeedback('This address has some privacy issues.', 'warning');
+        filter('uh-oh-address-likely-known');
+        document.getElementById('search-btn').click();
+
         uniqViolations.forEach(violation => {
           document
             .querySelectorAll('ul li[data-privacy*="'+ violation +'"]')
             .forEach(e => e.classList.remove('uk-hidden'));
         });
       } else {
-        noResults();
+        noResults('all-good');
       }
+    })
+    .catch( err => {
+      err.text().then( errorMessage => {
+        showSearchFeedback(errorMessage, 'error');
+      })
     })
   }
 
@@ -60,25 +77,53 @@ layout: default
       .forEach(e => e.classList.add('uk-hidden'));
   }
 
-  function noResults() {
-    hideAllPrivacyIssues();
-    document.getElementById('uh-oh-address-likely-known-container')
-      .getElementsByClassName('all-good uk-hidden')[0]
-      .classList.remove('uk-hidden');
+  function showSearchFeedback(msg, status) {
+    // change input highlight 
+    clearFeedback();
+    getHeroSearchElement().classList.add(status);
+
+    // Show message
+    const feedbackContainer = document.getElementById('feedback-message');
+    feedbackContainer.classList.remove('success', 'warning', 'error', 'uk-hidden');
+    feedbackContainer.classList.add(status);
+    feedbackContainer.innerHTML = msg;
   }
 
-  function search() {
-    document.getElementById('search-btn').click();
+  function clearFeedback() {
+    filter('uh-oh-address-likely-known', 'no');
+    getHeroSearchElement().classList.remove('success', 'warning', 'error');
+    document.getElementById('feedback-message').classList.add('uk-hidden');
   }
-function filter(tag) {
+
+  function noResults(key) {
+    filter('uh-oh-address-likely-known', 'no');
+
+    switch(key) {
+      case 'invalid-input':
+        showSearchFeedback('Please enter valid BitCoin address.', 'error');
+        break;
+      case 'all-good':
+        showSearchFeedback('No privacy issues found. Good work.', 'success');
+        break;
+    } 
+    // document.getElementById('uh-oh-address-likely-known-container')
+    //   .getElementsByClassName('all-good uk-hidden')[0]
+    //   .classList.remove('uk-hidden');
+  }
+
+  // function search() {
+  //   analyzeTransactions();
+  // }
+
+function filter(tag, showSection = 'yes') {
   hideAllPrivacyIssues();
-  if(tag == "uh-oh-address-likely-known")
-    analyzeTransactions();
-  setActiveTag(tag);
-  showContainer(tag);
+  // if(tag == "uh-oh-address-likely-known")
+    // analyzeTransactions();
+  setActiveTag(tag, showSection);
+  showContainer(tag, showSection);
 }
 
-function setActiveTag(id) {
+function setActiveTag(id, showSection = 'yes') {
   // loop through all items and remove active class
   var items = document.getElementsByClassName('card-category');
   for(var i=0; i < items.length; i++) {
@@ -86,29 +131,39 @@ function setActiveTag(id) {
     items[i].classList.add('uk-card-default');
   }
 
-  // set the selected id's item to active
-  var item = document.getElementById(id + '-card');
-  if(item) {
-    item.classList.remove('uk-card-default');
-    item.classList.add('uk-card-primary');
+  if(showSection == 'yes') {
+    // set the selected id's item to active
+    var item = document.getElementById(id + '-card');
+    if(item) {
+      item.classList.remove('uk-card-default');
+      item.classList.add('uk-card-primary');
+    }
   }
 }
 
-function showContainer(id) {
+function showContainer(id, showSection = 'yes') {
   // loop through all lists and hide them
   var lists = document.getElementsByClassName('category-container');
   for(var i=0; i < lists.length; i++) {
     lists[i].classList.add('hidden');
   }
 
-  // remove the hidden class from the list corresponding to the selected id
-  var list = document.getElementById(id + '-container');
-  var section = document.getElementById('category-section');
-  if(list) {
-    section.classList.remove('hidden');
-    list.classList.remove('hidden');
+  if(showSection == 'yes'){
+    // remove the hidden class from the list corresponding to the selected id
+    var list = document.getElementById(id + '-container');
+    var section = document.getElementById('category-section');
+    if(list) {
+      section.classList.remove('hidden');
+      list.classList.remove('hidden');
+    }  
+  } else {
+    var list = document.getElementById(id + '-container');
+    var section = document.getElementById('category-section');
+    if(list) {
+      section.classList.add('hidden');
+      list.classList.add('hidden');
+    }
   }
-
 }
 </script>
 
