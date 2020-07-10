@@ -49,12 +49,12 @@
 
                     <!-- Html Elements for Search -->
                     <div class="uk-position-relative">
-                        <form class="uk-search uk-search-default uk-width-1-1">
+                        <form class="uk-search uk-search-default uk-width-1-1" onsubmit="search();return false;">
                             <input id="hero-search" class="uk-search-input" type="search" placeholder="Paste BTC address...">
-                            <span data-uk-search-icon></span>
+                            <span data-uk-search-icon onclick="search()"></span>
                         </form>
-						<div align="center" style="padding-top: 20px;">
-							<a class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-margin-small-top" href="#uh-oh-address-likely-known-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('uh-oh-address-likely-known');">Search Blockchain</a>
+						<div align="center" style="padding-top: 20px;" hidden>
+							<a class="uk-button uk-button-primary uk-button-large uk-border-rounded uk-margin-small-top" href="#uh-oh-address-likely-known-container" data-uk-scroll="duration: 400; offset: 35;" onclick="filter('uh-oh-address-likely-known');" id="search-btn">Search Blockchain</a>
 						</div>
                     </div>
 
