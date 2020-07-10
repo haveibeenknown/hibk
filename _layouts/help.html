@@ -182,6 +182,8 @@ function showContainer(id) {
         					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#DC3545;">&#9432; {{post.title}}</a></li>
         					{% elsif post.external_url and post.tags contains "warning" %}
         					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#FFC107;">&#9432; {{post.title}}</a></li>
+                  {% elsif post.external_url and post.tags contains "info" %}
+                  <li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#2196F3;">&#9432; {{post.title}}</a></li>
         					{% elsif post.external_url and post.tags contains "good" %}
         					<li data-privacy="{{post.privacy}}"><a href="{{ post.external_url }}" style="color:#28A745;">&#9432; {{post.title}}</a></li>
         					{% elsif post.external_url %}
