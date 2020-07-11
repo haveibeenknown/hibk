@@ -26,7 +26,7 @@ github_username:    satoshua
 
 # Default footer image settings
 footer:
-    copyright:      Made with &#35;fucKYC by <a href="https://twitter.com/satoshua">Satoshua</a>
+    copyright:      Made by <a href="https://twitter.com/satoshua">Satoshua</a>
 
 # Path to post content assets directory i.e post images, pdfs etc
 post_assets:        /assets/posts/
