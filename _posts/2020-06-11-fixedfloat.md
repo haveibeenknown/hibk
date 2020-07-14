@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Design for improving bitcoin privacy and fungibility - CoinSwap
-categories: [CoinJoins and Mixers]
+title: Instant cryptocurrency exchange - FixedFloat
+categories: [Uh oh address likely known, Chain Hopping]
 tags: 
 privacy: coinjoin-equal-outputs, change-detection-uih1, exotic-detection-uih2, self-transfer, change-detection-script-types, change-detection-precision, internal-address-reuse
-external_url: https://gist.github.com/chris-belcher/9144bd57a91c194e332fb5ca371d0964
+external_url: https://fixedfloat.com/
 ---
