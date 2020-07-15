@@ -31,6 +31,10 @@ footer:
 # Path to post content assets directory i.e post images, pdfs etc
 post_assets:        /assets/posts/
 
+# Brand meta settings
+brand:
+	image: hibk-meta.png
+
 # Build settings
 markdown:           kramdown
 highlighter:        rouge
