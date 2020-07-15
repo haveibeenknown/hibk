@@ -33,7 +33,7 @@ post_assets:        /assets/posts/
 
 # Brand meta settings
 brand:
-	image: 			hibk-meta.png
+    image: 			hibk-meta.png
 
 # Build settings
 markdown:           kramdown
