@@ -15,8 +15,8 @@ featured:
     title: Featured Resources
     tag: featured
 cta:
-    title: Looking for more?
-    subtitle: Get an email when we share something new
+    title: Show Your Support
+    subtitle: Subscribe to our feed with [RSSMailer](https://rssmailer.app) and consider upgrading to pro for unlimited feeds.
     button_text: Subscribe  
     button_url: https://rssmailer.app/s/hibk      
 ---
