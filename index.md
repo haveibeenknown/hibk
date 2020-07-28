@@ -16,7 +16,7 @@ featured:
     tag: featured
 cta:
     title: Show Your Support
-    subtitle: Subscribe to our feed with RSSMailer and consider upgrading to pro for unlimited feeds.
+    subtitle: Consider upvoting HIBK on Product Hunt
     button_text: Subscribe  
     button_url: https://rssmailer.app/s/hibk      
 ---
