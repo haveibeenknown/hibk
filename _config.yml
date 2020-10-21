@@ -18,15 +18,15 @@ url:                "https://haveibeenknown.com"
 
 # Author settings, displayed on about page
 author:
-    github:			https://github.com/satoshua/haveibeenknown
+    github:			https://github.com/haveibeenknown/haveibeenknown
 
 # Social share buttons
-twitter_username:   satoshua
-github_username:    satoshua
+twitter_username:   
+github_username:    
 
 # Default footer image settings
 footer:
-    copyright:      Made by <a href="https://twitter.com/satoshua">Satoshua</a>
+    copyright:      HIBK?
 
 # Path to post content assets directory i.e post images, pdfs etc
 post_assets:        /assets/posts/
